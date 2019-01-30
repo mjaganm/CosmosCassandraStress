@@ -1,0 +1,6 @@
+com\microsoft\cosmos\cassandrastress\daily_max_price_data.class
+com\microsoft\cosmos\cassandrastress\largeschema.class
+com\microsoft\cosmos\cassandrastress\sixmonth_max_daily_price_analysis.class
+com\microsoft\cosmos\cassandrastress\CassandraStress.class
+com\microsoft\cosmos\cassandrastress\RandomData.class
+com\microsoft\cosmos\cassandrastress\raw_price_data.class
