@@ -38,6 +38,7 @@ C:\src\Java\CosmosCassandraStress\target>java -cp CosmosCassandra-1.0-SNAPSHOT-j
                 
    This change owes to difference in path of "cacerts" file for Java in Windows\Linux:
    Linux: $JAVA_HOME/jre/lib/security/cacerts
+   
    Windows: $JAVA_HOME/lib/security/cacerts
    
 
