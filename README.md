@@ -44,12 +44,13 @@ Linux fat jar available here: https://cosmoscassandra.blob.core.windows.net/cass
  
 
 # Quick Troubleshooting:
-1. The built jar in \target runs in Windows without any changes. For running in Linux the following change needs to be made in CassandraStress.java:
-                ssl_keystore_file_path = new StringBuilder(javaHomeDirectory).append("/jre/lib/security/cacerts").toString();
+1. The built jar in \target runs in Windows without any changes. For running in Linux the following change needs to be made in    CassandraStress.java:
+
+       ssl_keystore_file_path = new StringBuilder(javaHomeDirectory).append("/jre/lib/security/cacerts").toString();
                 
    This change owes to difference in path of "cacerts" file for Java in Windows\Linux:
-       Linux: $JAVA_HOME/jre/lib/security/cacerts
    
+       Linux: $JAVA_HOME/jre/lib/security/cacerts
        Windows: $JAVA_HOME/lib/security/cacerts
    
 
