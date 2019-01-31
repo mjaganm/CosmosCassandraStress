@@ -28,14 +28,19 @@ CREATE TABLE loadtest.daily_max_price_data (
   AND cosmosdb_cell_level_timestamp = true
 AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughput to be lower as well
 
+2. Build from Sources
 
-C:\src\Java\CosmosCassandraStress\target>java -cp CosmosCassandra-1.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
-  
-Windows:
-\target > java -cp CosmosCassandra-Windows-2.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
+2a. For logging latencies onto AppInsights: (Optional)
+     - Create an AppInsights account in azure
+     - Get the "Instrumentation key" from "Overview page"
+     - Add the key to the sources in "CassandraStrss.java": runLoadTest()
+       -- TelemetryConfiguration.getActive().setInstrumentationKey("<Set your Instrumentation key here>");
 
+2b. You could quick run the available jar ()
+Linux fat jar available here: https://cosmoscassandra.blob.core.windows.net/cassandrastress/CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar
 
-
+\target > java -cp CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
+ 
 
 # Quick Troubleshooting:
 1. The built jar in \target runs in Windows without any changes. For running in Linux the following change needs to be made in CassandraStress.java:
