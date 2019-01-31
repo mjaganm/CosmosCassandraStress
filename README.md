@@ -3,7 +3,7 @@ CosmosCassandraStress is a tool to scale test the Cassandra API at very large th
 
 # Steps to run
 
-## 1. Create Tables in the account
+## 1. Create Tables in the Cosmos Cassandra account (Keyspace is "loadtest")
 
     CREATE TABLE loadtest.raw_price_data (
       product_id text,
@@ -31,12 +31,12 @@ CosmosCassandraStress is a tool to scale test the Cassandra API at very large th
 ## 2. Build from Sources
 
 ### 2a. For logging latencies onto AppInsights: (Optional)
-     - Create an AppInsights account in azure
+     - Create an AppInsights account in Azure portal (https://portal.azure.com)
      - Get the "Instrumentation key" from "Overview page"
      - Add the key to the sources in "CassandraStrss.java": runLoadTest()
        -- TelemetryConfiguration.getActive().setInstrumentationKey("<Set your Instrumentation key here>");
 
-### 2b. You could quickly run the available jar (AppInsights logs are not available to you)
+### 2b. Quickly run the available jar (Please keep in mind that, using this option AppInsights logs are not available to you to check latency numbers)
 
 Linux fat jar available here: https://cosmoscassandra.blob.core.windows.net/cassandrastress/CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar
 
