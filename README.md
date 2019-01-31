@@ -29,7 +29,12 @@ CREATE TABLE loadtest.daily_max_price_data (
 AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughput to be lower as well
 
 
-C:\src\Java\CosmosCassandraStress\target>java -cp CosmosCassandra-1.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStresscom.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
+C:\src\Java\CosmosCassandraStress\target>java -cp CosmosCassandra-1.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
+  
+Windows:
+\target > java -cp CosmosCassandra-Windows-2.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
+
+
 
 
 # Quick Troubleshooting:
