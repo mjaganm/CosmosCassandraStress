@@ -36,7 +36,8 @@ AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughpu
      - Add the key to the sources in "CassandraStrss.java": runLoadTest()
        -- TelemetryConfiguration.getActive().setInstrumentationKey("<Set your Instrumentation key here>");
 
-2b. You could quick run the available jar ()
+2b. You could quickly run the available jar (AppInsights logs are not available to you)
+
 Linux fat jar available here: https://cosmoscassandra.blob.core.windows.net/cassandrastress/CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar
 
 \target > java -cp CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar com.microsoft.cosmos.cassandrastress.CassandraStress --endpoint <Cosmos Cassandra Account Name>.cassandra.cosmosdb.azure.com --key <Primary Key from Azure Portal> --username <Username from Azure Portal> --keyspace loadtest --tablename raw_price_data --operation get_ids -mode write_mode
