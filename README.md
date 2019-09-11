@@ -2,8 +2,10 @@
 CosmosCassandraStress is a tool to scale test the Cassandra API at very large throughput. It is to be observed that even at very large request volume, the latency stays significantly constant.
 
 # Steps to run
-
-## 1. Create Tables in the Cosmos Cassandra account (Keyspace is "loadtest")
+## 1. Create loadtest keyspace
+    CREATE KEYSPACE loadtest WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+    
+## 2. Create Tables in the Cosmos Cassandra account (Keyspace is "loadtest")
 
     CREATE TABLE loadtest.raw_price_data (
       product_id text,
@@ -28,15 +30,15 @@ CosmosCassandraStress is a tool to scale test the Cassandra API at very large th
       AND cosmosdb_cell_level_timestamp = true
     AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughput to be lower as well
 
-## 2. Build from Sources
+## 3. Build from Sources
 
-### 2a. For logging latencies onto AppInsights: (Optional)
+### 3a. For logging latencies onto AppInsights: (Optional)
      - Create an AppInsights account in Azure portal (https://portal.azure.com)
      - Get the "Instrumentation key" from "Overview page"
      - Add the key to the sources in "CassandraStrss.java": runLoadTest()
        -- TelemetryConfiguration.getActive().setInstrumentationKey("<Set your Instrumentation key here>");
 
-### 2b. Quickly run the available jar (Please keep in mind that, using this option AppInsights logs are not available to you to check latency numbers)
+### 3b. Quickly run the available jar (Please keep in mind that, using this option AppInsights logs are not available to you to check latency numbers)
 
 Linux fat jar available here: https://cosmoscassandra.blob.core.windows.net/cassandrastress/CosmosCassandra-Linux-2.0-SNAPSHOT-jar-with-dependencies.jar
 
