@@ -16,7 +16,7 @@ CosmosCassandraStress is a tool to scale test the Cassandra API at very large th
       seller_id int,
       PRIMARY KEY (product_id, timestamp)
     ) WITH CLUSTERING ORDER BY (timestamp ASC)
-    AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughput to be lower as well
+    AND cosmosdb_provisioned_throughput = 100000; // You could modify the throughput to be lower as well
 
 
     CREATE TABLE loadtest.daily_max_price_data (
@@ -28,7 +28,7 @@ CosmosCassandraStress is a tool to scale test the Cassandra API at very large th
         PRIMARY KEY (product_id, date)
     ) WITH CLUSTERING ORDER BY (date ASC)
       AND cosmosdb_cell_level_timestamp = true
-    AND cosmosdb_provisioned_throughput = 1000000; // You could modify the throughput to be lower as well
+    AND cosmosdb_provisioned_throughput = 100000; // You could modify the throughput to be lower as well
 
 ## 3. Build from Sources
 
